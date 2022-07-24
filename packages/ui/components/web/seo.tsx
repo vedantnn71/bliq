@@ -1,8 +1,8 @@
 import { FC } from "react";
 import { useState, useEffect } from "react";
+import defaultSEO from "configs/defaultSEO.json";
 import Head from "next/head";
 import Image from "next/image";
-import pageData from "configs/pageData.json";
 import logo from "assets/logo.svg";
 
 interface SEOProps {
@@ -13,16 +13,15 @@ interface SEOProps {
 
 const SEO: FC<SEOProps> = ({ pageTitle, description, favicon }) => {
   const [currentURL, setCurrentURL] = useState("");
-  const defaultData = pageData.seo;
 
   useEffect(() => setCurrentURL(window.location.href), []);
 
   if (!pageTitle) {
-    pageTitle = defaultData.title;
+    pageTitle = defaultSEO.title;
   }
 
   if (!description) {
-    description = defaultData.description;
+    description = defaultSEO.description;
   }
 
   if (!favicon) {
