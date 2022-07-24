@@ -1,0 +1,113 @@
+{
+  "navbar": {
+    "links": [
+      {
+        "name": "Features",
+        "to": "/features",
+        "type": "link"
+      },
+      {
+        "name": "Pricing",
+        "to": "/pricing",
+        "type": "link"
+      },
+      {
+        "name": "Login",
+        "to": "/auth/login",
+        "type": "link"
+      },
+      {
+        "name": "🚀Signup",
+        "to": "/auth/signup",
+        "type": "button.primary"
+      }
+    ]
+  },
+  "hero": {
+    "heading": "Supercharge your writing",
+    "description": "Enhance and speed up your writing with the help of blazingly fast auto-completions, powered by openai.",
+    "button": "🔍 Learn more"
+  },
+  "example": {
+    "heading": "Save your time with blazing fast completions",
+    "description": "Never waste time again on thinking about what to write, ever again.",
+    "button": "Try it"
+  },
+  "apps": {
+    "heading": "Works your way.",
+    "description": "Works on all of your favorite sites. No matter what it is.",
+    "categories": [
+      {
+        "name": "Communication",
+        "icons": [
+          {
+            "src": "/icons/slack.svg",
+            "alt": "Slack"
+          },
+          {
+            "src": "/icons/gmail.svg",
+            "alt": "Gmail"
+          },
+          {
+            "src": "/icons/outlook.svg",
+            "alt": "Outlook"
+          },
+          {
+            "src": "/icons/slack.svg",
+            "alt": "Slack"
+          }
+        ]
+      },
+      {
+        "name": "Documents",
+        "icons": [
+          {
+            "src": "/icons/notion.svg",
+            "alt": "Notion"
+          },
+          {
+            "src": "/icons/salesforce.svg",
+            "alt": "Salesforce"
+          },
+          {
+            "src": "/icons/docs.svg",
+            "alt": "Google Docs"
+          },
+          {
+            "src": "/icons/docs.svg",
+            "alt": "Google Docs"
+          }
+        ]
+      },
+      {
+        "name": "Social media",
+        "icons": [
+          {
+            "src": "/icons/twitter.svg",
+            "alt": "Twitter"
+          },
+          {
+            "src": "/icons/facebook.svg",
+            "alt": "Facebook"
+          },
+          {
+            "src": "/icons/discord.svg",
+            "alt": "Discord"
+          },
+          {
+            "src": "/icons/docs.svg",
+            "alt": "Google Docs"
+          }
+        ]
+      }
+    ]
+  },
+  "footer": {
+    "heading": "Write blazingly fast.",
+    "button": "🚀 Try for free"
+  },
+  "seo": {
+    "title": "Bliq | Write blazingly fast",
+    "description": "Enhance and speed up your writing with the help of blazingly fast auto-completions, powered by openai."
+  }
+}
