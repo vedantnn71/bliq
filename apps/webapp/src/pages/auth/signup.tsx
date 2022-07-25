@@ -51,7 +51,7 @@ const Signup = () => {
         setIsFetching(true);
 
         if (res?.status === 200 || res?.status === 201) {
-          router.push("/app");
+          router.push("/");
         }
       })
       .catch((error) => {
