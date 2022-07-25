@@ -22,7 +22,8 @@ const Nav = () => {
   const { data, status } = useSession();
 
   if (data) {
-    const { name, image: profile } = data.user;
+    const name = data?.name as string;
+    const profile = data?.profile as string;
 
     if (isMobile) return <MobileNav items={[<h1>hey</h1>]} />
 
@@ -62,10 +63,10 @@ const Nav = () => {
 }
 
 interface MobileNavProps {
-  items: FC[];
+  items: any[];
 }
 
-const MobileNav: FC<items> = ({ items }) => (
+const MobileNav: FC<MobileNavProps> = ({ items }) => (
   <Box p="8">
     <Menu>
       <MenuButton
