@@ -1,9 +1,11 @@
 import { Flex, Box, Heading, Text, Input } from "@chakra-ui/react";
+import { useDocumentStore } from "store";
 import type { ChangeEvent } from "react";
 import logo from "assets/logo.svg";
 
 const Header = () => {
-  const fileName = "Untitled Document";
+  const name = useDocumentStore((state) => state.name);
+  const setName = useDocumentStore((state) => state.setName);
   const status = "Saved";
 
   return (
@@ -18,13 +20,13 @@ const Header = () => {
       h="max-content"
     >
       <Input
-        value={fileName}
+        value={name}
         color="blackAlpha.800"
         fontWeight="bold"
         maxW="fit-content"
         border="none"
         outline="none"
-        onChange={(event: ChangeEvent) => {}}
+        onChange={(event: ChangeEvent) => setName(event.target.value)}
       />
       <Text fontWeight="medium" color="blackAlpha.700">
         {status}
