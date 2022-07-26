@@ -6,6 +6,9 @@ interface DocumentStore {
   content: string;
   completion: string;
   id: string;
+  setId: (id: string) => void;
+  setName: (name: string) => void;
+  setContent: (content: string) => void;
 };
 
 const useDocumentStore = create<DocumentStore>()(
