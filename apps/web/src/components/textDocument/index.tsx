@@ -18,9 +18,7 @@ const TextDocument = () => {
 
   useEffect(() => {
     const saveTimer = setTimeout(() => {
-      setContent({
-        content: editor.getHTML(),
-      });
+      setContent(editor?.getHTML() as string);
     }, 5000);
 
     return () => clearTimeout(saveTimer);
