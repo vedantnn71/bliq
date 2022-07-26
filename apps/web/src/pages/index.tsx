@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import Nav from "components/nav";
-import Header from "components/header";
+import Header from "components/textDocument/header";
 import TextDocument from "components/textDocument";
 import { Flex } from "@chakra-ui/react";
 import { useSession } from "next-auth/react";
