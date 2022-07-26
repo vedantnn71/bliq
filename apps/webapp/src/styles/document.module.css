@@ -1,0 +1,10 @@
+.editor > div {
+  border: none;
+  outline: none;
+}
+
+.editor {
+  padding: 2rem;
+  font-family: Inter, sans-serif;
+  color: rgba(0, 0, 0, 0.9);
+}

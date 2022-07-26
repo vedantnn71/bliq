@@ -5,6 +5,7 @@ import {
   Text,
   Input
 } from "@chakra-ui/react";
+import type { ChangeEvent } from "react";
 import logo from "assets/logo.svg";
 
 const Header = () => {
@@ -29,6 +30,7 @@ const Header = () => {
         maxW="fit-content"
         border="none"
         outline="none"
+        onChange={(event: ChangeEvent) => {}}
       />
       <Text fontWeight="medium" color="blackAlpha.700">{status}</Text>
     </Flex>
