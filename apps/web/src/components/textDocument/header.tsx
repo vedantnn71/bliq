@@ -18,6 +18,7 @@ const Header = () => {
       boxShadow="base"
       w="100%"
       h="max-content"
+      overflow="hidden"
     >
       <Input
         value={name}
