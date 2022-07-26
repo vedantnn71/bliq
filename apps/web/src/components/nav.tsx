@@ -1,12 +1,12 @@
-import { 
-  Flex, 
+import {
+  Flex,
   Box,
   Menu,
   MenuButton,
   MenuList,
   MenuItem,
   IconButton,
-  useMediaQuery
+  useMediaQuery,
 } from "@chakra-ui/react";
 import { BiMenu } from "react-icons/bi";
 import { FC } from "react";
@@ -18,18 +18,18 @@ import logo from "assets/logo.svg";
 import generateKey from "lib/react/generateKey";
 
 const Nav = () => {
-  const [isMobile] = useMediaQuery('(max-width: 768px)');
+  const [isMobile] = useMediaQuery("(max-width: 768px)");
   const { data, status } = useSession();
 
   if (data) {
     const name = data?.name as string;
     const profile = data?.profile as string;
 
-    if (isMobile) return <MobileNav items={[<h1>hey</h1>]} />
+    if (isMobile) return <MobileNav items={[<h1>hey</h1>]} />;
 
     return (
       <Flex
-        direction="column" 
+        direction="column"
         maxW="max-content"
         h="100vh"
         alignItems="center"
@@ -38,13 +38,7 @@ const Nav = () => {
         px="4"
         boxShadow="base"
       >
-        <Image 
-          height={80}
-          width={80}
-          src={logo}
-          alt="Bliq" 
-          priority 
-        />
+        <Image height={80} width={80} src={logo} alt="Bliq" priority />
         <Box>
           <Image
             height={50}
@@ -56,11 +50,11 @@ const Nav = () => {
           />
         </Box>
       </Flex>
-    )
+    );
   }
 
-  return <h1>Loading...</h1>
-}
+  return <h1>Loading...</h1>;
+};
 
 interface MobileNavProps {
   items: any[];
@@ -69,22 +63,16 @@ interface MobileNavProps {
 const MobileNav: FC<MobileNavProps> = ({ items }) => (
   <Box p="8">
     <Menu>
-      <MenuButton
-        as={IconButton}
-        icon={<BiMenu />}
-        variant='outline'
-      >
+      <MenuButton as={IconButton} icon={<BiMenu />} variant="outline">
         Actions
       </MenuButton>
       <MenuList>
         {items.map((item, id) => (
-          <MenuItem key={generateKey(id)}>
-            {item}
-          </MenuItem>
+          <MenuItem key={generateKey(id)}>{item}</MenuItem>
         ))}
       </MenuList>
     </Menu>
   </Box>
-)
+);
 
 export default Nav;

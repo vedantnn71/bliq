@@ -28,7 +28,9 @@ const Example = () => {
         gap="8"
         maxW={useBreakpointValue({ base: "100%", lg: "50%" })}
       >
-        <Heading overflow="hidden" size="2xl">{heading}</Heading>
+        <Heading overflow="hidden" size="2xl">
+          {heading}
+        </Heading>
         <Text fontSize="2xl" color="blackAlpha.700">
           {description}
         </Text>

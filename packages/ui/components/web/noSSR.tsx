@@ -5,11 +5,9 @@ const NoSSR: FC = ({ ...props }) => {
 
   useEffect(() => {
     setMounted(true);
-  }, [])
+  }, []);
 
-  return <>
-    { mounted ? props : null }
-  </>
-}
+  return <>{mounted ? props : null}</>;
+};
 
 export default NoSSR;

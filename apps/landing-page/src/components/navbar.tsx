@@ -30,7 +30,7 @@ const Navlink: FC<NavlinkProps> = ({ name, to, type, ...props }) => {
   let isExternal = false;
 
   if (to.includes("auth")) {
-    to = process.env.NEXT_PUBLIC_APP_URL as string + to;
+    to = (process.env.NEXT_PUBLIC_APP_URL as string) + to;
     isExternal = true;
   }
 

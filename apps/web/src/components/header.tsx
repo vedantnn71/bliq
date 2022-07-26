@@ -1,10 +1,4 @@
-import { 
-  Flex, 
-  Box,
-  Heading,
-  Text,
-  Input
-} from "@chakra-ui/react";
+import { Flex, Box, Heading, Text, Input } from "@chakra-ui/react";
 import type { ChangeEvent } from "react";
 import logo from "assets/logo.svg";
 
@@ -14,7 +8,7 @@ const Header = () => {
 
   return (
     <Flex
-      direction="row" 
+      direction="row"
       alignItems="center"
       justify="space-between"
       px="6"
@@ -23,7 +17,7 @@ const Header = () => {
       w="100%"
       h="max-content"
     >
-      <Input 
+      <Input
         value={fileName}
         color="blackAlpha.800"
         fontWeight="bold"
@@ -32,9 +26,11 @@ const Header = () => {
         outline="none"
         onChange={(event: ChangeEvent) => {}}
       />
-      <Text fontWeight="medium" color="blackAlpha.700">{status}</Text>
+      <Text fontWeight="medium" color="blackAlpha.700">
+        {status}
+      </Text>
     </Flex>
-  )
-}
+  );
+};
 
 export default Header;

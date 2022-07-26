@@ -38,7 +38,7 @@ const Signup = () => {
   }>({
     email: "",
     password: "",
-    form: ""
+    form: "",
   });
   const router = useRouter();
 
@@ -56,11 +56,13 @@ const Signup = () => {
         }
 
         if (res?.status === 401) {
-          setErrors({ form: "You don't seem to have an account, please signup" })
+          setErrors({
+            form: "You don't seem to have an account, please signup",
+          });
         }
       })
       .catch((error) => {
-        setErrors({ form: "Ooppss, something went wrong at our end :(" })
+        setErrors({ form: "Ooppss, something went wrong at our end :(" });
       })
       .finally(() => {
         setIsFetching(false);
@@ -136,11 +138,14 @@ const Signup = () => {
               </Stack>
               <Stack spacing="6">
                 <Button
-                  onClick={handleLogin} 
-                  color="white" 
+                  onClick={handleLogin}
+                  color="white"
                   variant="brand"
                   isLoading={isFetching}
-                  isDisabled={email === '' || !(errors.email === '' || errors.password === '')}
+                  isDisabled={
+                    email === "" ||
+                    !(errors.email === "" || errors.password === "")
+                  }
                 >
                   Log in
                 </Button>

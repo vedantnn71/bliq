@@ -1,20 +1,20 @@
-import { IconButton, Flex } from "@chakra-ui/react"
+import { IconButton, Flex } from "@chakra-ui/react";
 import {
   BiBold,
   BiItalic,
-  BiStrikethrough, 
+  BiStrikethrough,
   BiListUl,
   BiListOl,
-  BiHeading
-} from "react-icons/bi"
-import { ImPageBreak, ImPagebreak } from "react-icons/im"
-import { TbBlockquote } from "react-icons/tb"
-import { EditorContent, useEditor } from "@tiptap/react"
-import React from "react"
+  BiHeading,
+} from "react-icons/bi";
+import { ImPageBreak, ImPagebreak } from "react-icons/im";
+import { TbBlockquote } from "react-icons/tb";
+import { EditorContent, useEditor } from "@tiptap/react";
+import React from "react";
 
 const Menubar = ({ editor }: any) => {
   if (!editor) {
-    return null
+    return null;
   }
 
   return (
@@ -81,8 +81,7 @@ const Menubar = ({ editor }: any) => {
         bg="white"
       />
     </Flex>
-  )
-}
-
+  );
+};
 
 export default Menubar;

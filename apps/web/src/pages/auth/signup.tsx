@@ -56,16 +56,20 @@ const Signup = () => {
       })
       .catch((error) => {
         if (error.request.status === 401) {
-          setErrors({ form: "You don't seem to have an account, please signup" })
+          setErrors({
+            form: "You don't seem to have an account, please signup",
+          });
           return;
         }
 
         if (error.request.status === 422) {
-          setErrors({ form: "Your account probably already exists, please try logging in" })
+          setErrors({
+            form: "Your account probably already exists, please try logging in",
+          });
           return;
         }
 
-        setErrors({ form: "Ooppss, something went wrong at our end :(" })
+        setErrors({ form: "Ooppss, something went wrong at our end :(" });
       })
       .finally(() => {
         setIsFetching(false);
@@ -141,11 +145,11 @@ const Signup = () => {
               </Stack>
               <Stack spacing="6">
                 <Button
-                  onClick={handleSignup} 
-                  color="white" 
+                  onClick={handleSignup}
+                  color="white"
                   variant="brand"
                   isLoading={isFetching}
-                  isDisabled={!(errors.email === '' || errors.password === '')}
+                  isDisabled={!(errors.email === "" || errors.password === "")}
                 >
                   Sign in
                 </Button>
