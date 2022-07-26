@@ -1,20 +1,26 @@
 import type { NextPage } from 'next'
+import { Flex } from '@chakra-ui/react'
+import { useSession } from 'next-auth/react'
+import { useRouter } from 'next/router'
+import { useEffect } from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
 import Nav from 'components/nav'
 import Header from 'components/header'
 import TextDocument from 'components/textDocument'
-import { Flex } from '@chakra-ui/react'
-import { useSession } from 'next-auth/react'
-import { useRouter } from 'next/router'
 
-const Home: NextPage = () => {
-  const { status } = useSession()
+const Document: NextPage = () => {
   const router = useRouter()
+  const { status } = useSession()
+  const { id } = router.query;
+  
+  useEffect(() => {
+    console.log(id)
+  }, [id])
 
   if (status === 'unauthenticated')
     router.push('/auth/signup')
-
+  
   return (
     <Flex h="100vh" direction="row">
       <Nav />
@@ -30,4 +36,4 @@ const Home: NextPage = () => {
   )
 }
 
-export default Home
+export default Document

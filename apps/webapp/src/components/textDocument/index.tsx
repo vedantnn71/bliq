@@ -6,7 +6,7 @@ import StarterKit from "@tiptap/starter-kit";
 import Menubar from "./menubar";
 import styles from "styles/document.module.css";
 
-const Document = () => {
+const TextDocument = () => {
   const editor = useEditor({
     extensions: [
       StarterKit,
@@ -25,4 +25,4 @@ const Document = () => {
   )
 }
 
-export default Document;
+export default TextDocument;
