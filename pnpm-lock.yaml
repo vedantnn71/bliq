@@ -73,7 +73,7 @@ importers:
       tsconfig: link:../../packages/tsconfig
       typescript: 4.7.4
 
-  apps/webapp:
+  apps/web:
     specifiers:
       '@chakra-ui/react': ^2.2.4
       '@emotion/react': ^11.9.3

@@ -1,6 +1,6 @@
 import type { NextApiHandler, NextApiRequest, NextApiResponse } from "next";
 import { hashPassword } from "utils/auth";
-import { connect } from "lib/mongodb";
+import { client as mongoClient } from "lib/mongodb";
 
 const handler: NextApiHandler = async (
   req: NextApiRequest,
@@ -26,9 +26,8 @@ const handler: NextApiHandler = async (
     });
   }
 
-  const client = await connect();
-
-  const db = client.db();
+  const client = await mongoClient;
+  const db = await client.db();
 
   const existingUser = await db.collection("users").findOne({ email: email });
 
