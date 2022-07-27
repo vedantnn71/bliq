@@ -1,6 +1,7 @@
 import type { NextApiHandler, NextApiRequest, NextApiResponse } from "next";
 import { getSession } from "next-auth/react";
 import { findUser, createDocument } from "lib/db";
+import { ObjectId } from "mongodb";
 
 const handler: NextApiHandler = async (req: NextApiRequest, res: NextApiResponse) => {
   const session = await getSession({ req });
@@ -20,7 +21,7 @@ const handler: NextApiHandler = async (req: NextApiRequest, res: NextApiResponse
     res.status(401).send("Invalid user");
   }
 
-  const userId = user?._id;
+  const userId = user?._id as ObjectId;
 
   const doc = await createDocument({
     userId
