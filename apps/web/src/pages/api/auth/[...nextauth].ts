@@ -67,5 +67,4 @@ export default NextAuth({
     signIn: "/auth/signup",
   },
   secret: process.env.NEXTAUTH_SECRET as string,
-  session: { jwt: true }
 });
