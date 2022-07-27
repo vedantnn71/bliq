@@ -13,7 +13,7 @@ const handler: NextApiHandler = async (req: NextApiRequest, res: NextApiResponse
     res.status(403).send("Unauthorized");
   }
 
-  const { email } = session?.user;
+  const email = session?.user?.email as string;
   const user = await findUser({ email });
 
   if (!user) {
