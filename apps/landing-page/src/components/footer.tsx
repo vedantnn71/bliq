@@ -39,7 +39,7 @@ const Footer = () => {
         >
           {heading}
         </Heading>
-        <Link href="/auth/signup">
+        <Link href={(process.env.NEXT_PUBLIC_APP_URL as string) + to}>
           <Button size="lg" colorScheme="purple" bg="brand.primary">
             {button}
           </Button>
