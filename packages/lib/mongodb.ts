@@ -5,8 +5,7 @@ if (!process.env.MONGODB_URI) {
 }
 
 const uri: string = process.env.MONGODB_URI;
-let client: MongoClient;
-let clientPromise: Promise<MongoClient>;
+let client: Promise<MongoClient>;
 
 if (process.env.NODE_ENV === "development") {
   let globalWithMongoClientPromise = global as typeof globalThis & {
@@ -18,16 +17,10 @@ if (process.env.NODE_ENV === "development") {
     globalWithMongoClientPromise._mongoClientPromise = client.connect();
   }
 
-  clientPromise = globalWithMongoClientPromise._mongoClientPromise;
+  client= globalWithMongoClientPromise._mongoClientPromise;
 } else {
   client = new MongoClient(uri);
-  clientPromise = client.connect();
+  client = client.connect();
 }
 
-const connect = async () => {
-  const client = await MongoClient.connect(process.env.MONGODB_URI as string);
-
-  return client;
-};
-
-export { clientPromise, connect };
+export { client };
