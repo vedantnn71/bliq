@@ -90,6 +90,7 @@ importers:
       '@types/react-dom': 18.0.6
       axios: ^0.27.2
       bcryptjs: ^2.4.3
+      bson: ^4.6.5
       eslint: 8.20.0
       eslint-config-custom: workspace:*
       eslint-config-next: 12.2.3
@@ -116,6 +117,7 @@ importers:
       '@tiptap/starter-kit': 2.0.0-beta.191
       axios: 0.27.2
       bcryptjs: 2.4.3
+      bson: 4.6.5
       framer-motion: 6.5.1_biqbaboplfbrettd7655fr4n2y
       lib: link:../../packages/lib
       mongodb: 4.8.0
