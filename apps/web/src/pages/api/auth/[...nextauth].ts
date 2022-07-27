@@ -3,12 +3,12 @@ import NextAuth from "next-auth";
 import TwitterProvider from "next-auth/providers/twitter";
 import GoogleProvider from "next-auth/providers/google";
 import CredentialsProvider from "next-auth/providers/credentials";
-import { clientPromise, connect } from "lib/mongodb";
+import { client } from "lib/mongodb";
 import { verifyPassword } from "utils/auth";
 import axios from "axios";
 
 export default NextAuth({
-  adapter: MongoDBAdapter(clientPromise),
+  adapter: MongoDBAdapter(client),
   providers: [
     TwitterProvider({
       clientId: process.env.TWITTER_CLIENT_ID as string,
@@ -36,9 +36,7 @@ export default NextAuth({
         },
       },
       async authorize(credentials) {
-        const client = await connect();
-
-        const usersCollection = client.db().collection("users");
+        const usersCollection = await client.db().collection("users");
 
         const user = await usersCollection.findOne({
           email: credentials?.email ?? "limey@io.com",
@@ -67,4 +65,6 @@ export default NextAuth({
   pages: {
     signIn: "/auth/signup",
   },
+  secret: process.env.NEXTAUTH_SECRET as string,
+  session: { jwt: true }
 });
