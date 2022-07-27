@@ -10,16 +10,14 @@ const handler: NextApiHandler = async (req: NextApiRequest, res: NextApiResponse
   const session = await getSession({ req });
   const { id } = req.query;
 
-  if (req.method !== "GET") {
-    res.status(404).send("Invalid HTTP Method");
-  }
-
   if (!session) {
     res.status(403).send("Unauthorized");
+    return;
   }
 
   if (!id) {
     res.status(401).send("Id is required");
+    return;
   }
 
   const email = session?.user?.email as string;
@@ -27,6 +25,7 @@ const handler: NextApiHandler = async (req: NextApiRequest, res: NextApiResponse
 
   if (!user) {
     res.status(401).send("Invalid user");
+    return;
   }
 
   try {
@@ -45,14 +44,47 @@ const handler: NextApiHandler = async (req: NextApiRequest, res: NextApiResponse
   const client = await mongoClient;
   const database: Db = await client.db();
   const documents = await database.collection<Document>("documents");
-  const doc = await documents.findOne({ _id: objectId });
 
-  if (!doc) {
-    res.status(404).send("Document not found");
+  if (req.method === "GET") {
+    const doc = await documents.findOne({ _id: objectId });
+
+    if (!doc) {
+      res.status(404).send("Document not found");
+      return;
+    }
+
+    res.json(doc);
+    return;
+  } else if (req.method === "PUT") {
+    const { name, content } = req.body;
+    let toUpdate: any = {};
+
+    if (!name && !content) {
+      res.status(400).send("Invalid data");
+      return;
+    }
+
+    if (name) 
+      toUpdate.name = name;
+
+    if (content)
+      toUpdate.content = content;
+
+    const doc = await documents.updateOne(
+      { _id: objectId },
+      { $set: toUpdate }
+    );
+
+    if (doc.matchedCount === 0) {
+      res.status(404).send("Document not found");
+      return;
+    }
+
+    res.send("Success");
     return;
   }
 
-  res.json(doc);
+  res.status(404).send("Invalid HTTP Method");
 }
 
 export default handler;
