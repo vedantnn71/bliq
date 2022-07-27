@@ -1,4 +1,4 @@
-import { User } from "./user";
-import { Document } from "./document";
+import User from "./user";
+import Document from "./document";
 
-export { User, Document };
+export type { User, Document };

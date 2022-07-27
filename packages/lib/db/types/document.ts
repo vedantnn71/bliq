@@ -4,8 +4,8 @@ interface Document {
   userId: ObjectId;
   name: string;
   content: string;
-  createdAt: Date;
-  updatedAt?: Date;
+  createdAt: Date | number;
+  updatedAt?: Date | number;
 }
 
 export default Document;
