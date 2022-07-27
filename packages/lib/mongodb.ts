@@ -13,13 +13,17 @@ if (process.env.NODE_ENV === "development") {
   };
 
   if (!globalWithMongoClientPromise._mongoClientPromise) {
+    // @ts-ignore
     client = new MongoClient(uri);
+    // @ts-ignore
     globalWithMongoClientPromise._mongoClientPromise = client.connect();
   }
 
   client= globalWithMongoClientPromise._mongoClientPromise;
 } else {
+  // @ts-ignore
   client = new MongoClient(uri);
+  // @ts-ignore
   client = client.connect();
 }
 
