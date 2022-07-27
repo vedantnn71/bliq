@@ -9,7 +9,7 @@ interface DocumentStore {
   setId: (id: string) => void;
   setName: (name: string) => void;
   setContent: (content: string) => void;
-};
+}
 
 const useDocumentStore = create<DocumentStore>()(
   devtools(
@@ -18,11 +18,11 @@ const useDocumentStore = create<DocumentStore>()(
       content: "<p>Start writing ...</p>",
       completion: "",
       id: "",
-      setId: (id: string) => set(state => ({ id })),
-      setName: (name: string) => set(state => ({ name })),
-      setContent: (content: string) => set(state => ({ content })),
+      setId: (id: string) => set((state) => ({ id })),
+      setName: (name: string) => set((state) => ({ name })),
+      setContent: (content: string) => set((state) => ({ content })),
     }))
   )
 );
 
-export  { useDocumentStore };
+export { useDocumentStore };

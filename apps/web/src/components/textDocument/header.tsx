@@ -27,7 +27,9 @@ const Header = () => {
         maxW="fit-content"
         border="none"
         outline="none"
-        onChange={(event: ChangeEvent<HTMLInputElement>) => setName(event.target.value)}
+        onChange={(event: ChangeEvent<HTMLInputElement>) =>
+          setName(event.target.value)
+        }
       />
       <Text fontWeight="medium" color="blackAlpha.700">
         {status}

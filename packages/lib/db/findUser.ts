@@ -13,6 +13,6 @@ const findUser = async ({ email }: FindUserParams) => {
   const user = await users.findOne({ email });
 
   return user;
-}
+};
 
 export default findUser;

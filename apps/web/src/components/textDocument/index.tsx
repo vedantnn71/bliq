@@ -8,12 +8,12 @@ import Menubar from "./menubar";
 import styles from "styles/document.module.css";
 
 const TextDocument = () => {
-  const content = useDocumentStore(state => state.content);
-  const setContent = useDocumentStore(state => state.setContent);
+  const content = useDocumentStore((state) => state.content);
+  const setContent = useDocumentStore((state) => state.setContent);
 
   const editor = useEditor({
     extensions: [StarterKit],
-    content
+    content,
   });
 
   useEffect(() => {
@@ -22,8 +22,7 @@ const TextDocument = () => {
     }, 5000);
 
     return () => clearTimeout(saveTimer);
-
-  }, [editor, content, setContent])
+  }, [editor, content, setContent]);
 
   return (
     <Flex h="100%" direction="column" justify="space-between">

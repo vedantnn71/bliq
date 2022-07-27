@@ -1,12 +1,15 @@
 import type { NextApiHandler, NextApiRequest, NextApiResponse } from "next";
-import type { Document } from "lib/db/types"; 
+import type { Document } from "lib/db/types";
 import { BSONTypeError } from "bson";
 import { getSession } from "next-auth/react";
 import { findUser } from "lib/db";
 import { client as mongoClient } from "lib/mongodb";
 import { ObjectId, Db } from "mongodb";
 
-const handler: NextApiHandler = async (req: NextApiRequest, res: NextApiResponse) => {
+const handler: NextApiHandler = async (
+  req: NextApiRequest,
+  res: NextApiResponse
+) => {
   const session = await getSession({ req });
   const { id } = req.query;
 
@@ -35,7 +38,7 @@ const handler: NextApiHandler = async (req: NextApiRequest, res: NextApiResponse
       res.status(401).send("Invalid ID");
       return;
     }
-    
+
     return;
   }
 
@@ -64,11 +67,9 @@ const handler: NextApiHandler = async (req: NextApiRequest, res: NextApiResponse
       return;
     }
 
-    if (name) 
-      toUpdate.name = name;
+    if (name) toUpdate.name = name;
 
-    if (content)
-      toUpdate.content = content;
+    if (content) toUpdate.content = content;
 
     const doc = await documents.updateOne(
       { _id: objectId },
@@ -85,6 +86,6 @@ const handler: NextApiHandler = async (req: NextApiRequest, res: NextApiResponse
   }
 
   res.status(404).send("Invalid HTTP Method");
-}
+};
 
 export default handler;

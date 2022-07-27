@@ -3,7 +3,10 @@ import { getSession } from "next-auth/react";
 import { findUser, createDocument } from "lib/db";
 import { ObjectId } from "mongodb";
 
-const handler: NextApiHandler = async (req: NextApiRequest, res: NextApiResponse) => {
+const handler: NextApiHandler = async (
+  req: NextApiRequest,
+  res: NextApiResponse
+) => {
   const session = await getSession({ req });
 
   if (req.method !== "POST") {
@@ -24,10 +27,10 @@ const handler: NextApiHandler = async (req: NextApiRequest, res: NextApiResponse
   const userId = user?._id as ObjectId;
 
   const doc = await createDocument({
-    userId
-  })
+    userId,
+  });
 
   res.json(doc);
-}
+};
 
 export default handler;

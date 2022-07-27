@@ -36,7 +36,7 @@ export default NextAuth({
         },
       },
       async authorize(credentials) {
-        const client = await mongoClient; 
+        const client = await mongoClient;
         const usersCollection = await client.db().collection("users");
 
         const user = await usersCollection.findOne({

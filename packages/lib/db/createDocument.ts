@@ -23,8 +23,8 @@ const createDocument = async ({
     userId,
     name,
     content,
-    createdAt: Date.now()
-  })
-}
+    createdAt: Date.now(),
+  });
+};
 
 export default createDocument;
