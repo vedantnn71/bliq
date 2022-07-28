@@ -8,8 +8,8 @@ interface DocumentStore {
   content: string;
   completion: string;
   id?: ObjectId;
-  setName: (name: string) => void;
-  setContent: (content: string) => void;
+  setName: (name: string) => Promise<void>;
+  setContent: (content: string) => Promise<void>;
   fetch: (id: ObjectId) => Promise<void>;
 }
 
@@ -19,9 +19,18 @@ const useDocumentStore = create<DocumentStore>()(
       name: "Untitled",
       content: "<p>Start writing ...</p>",
       completion: "",
-      setName: (name: string) => set((state) => ({ name })),
+      setName: async (name: string) => {
+        if (!id || !name) return;
+
+        set({ name });
+
+        const response = await axios.put(`/api/document/${id}`, { name });
+        const data = await response.data;
+      },
       setContent: (content: string) => set((state) => ({ content })),
       fetch: async (id: ObjectId) => {
+        if (!id) return;
+
         const response = await axios.get(`/api/document/${id}`);
         const data = await response.data;
 
