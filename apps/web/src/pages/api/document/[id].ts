@@ -83,6 +83,16 @@ const handler: NextApiHandler = async (
 
     res.send("Success");
     return;
+  } else if (req.method === "DELETE") {
+    const doc = await documents.deleteOne({ _id: objectId });
+
+    if (doc.deletedCount === 0) {
+      res.status(404).send("Document not found");
+      return;
+    }
+
+    res.send("Success");
+    return;
   }
 
   res.status(404).send("Invalid HTTP Method");
