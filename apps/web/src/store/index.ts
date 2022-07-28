@@ -15,11 +15,13 @@ interface DocumentStore {
 
 const useDocumentStore = create<DocumentStore>()(
   devtools(
-    persist((set) => ({
+    persist((set, get) => ({
       name: "Untitled",
       content: "<p>Start writing ...</p>",
       completion: "",
       setName: async (name: string) => {
+        const id = get().id;
+
         if (!id || !name) return;
 
         set({ name });
@@ -27,7 +29,16 @@ const useDocumentStore = create<DocumentStore>()(
         const response = await axios.put(`/api/document/${id}`, { name });
         const data = await response.data;
       },
-      setContent: (content: string) => set((state) => ({ content })),
+      setContent: async (content: string) => {
+        const id = get().id;
+
+        if (!content) return;
+
+        set({ content });
+
+        const response = await axios.put(`/api/document/${id}`, { content });
+        const data = await response.data;
+      },
       fetch: async (id: ObjectId) => {
         if (!id) return;
 
