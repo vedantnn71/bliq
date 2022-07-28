@@ -1,4 +1,5 @@
 import { Flex, Box, Heading, Text, Input } from "@chakra-ui/react";
+import { DebounceInput } from "react-debounce-input";
 import { useDocumentStore } from "store";
 import type { ChangeEvent } from "react";
 import logo from "assets/logo.svg";
@@ -20,16 +21,13 @@ const Header = () => {
       h="max-content"
       overflow="hidden"
     >
-      <Input
+      <DebounceInput
         value={name}
-        color="blackAlpha.800"
-        fontWeight="bold"
-        maxW="fit-content"
-        border="none"
-        outline="none"
+        debounceTimeout={500}
         onChange={(event: ChangeEvent<HTMLInputElement>) =>
           setName(event.target.value)
         }
+        style={{ border: "none", outline: "none", color: "rgba(0, 0, 0, 0.8)" }}
       />
       <Text fontWeight="medium" color="blackAlpha.700">
         {status}
