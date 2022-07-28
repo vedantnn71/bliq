@@ -1,6 +1,6 @@
 import create from "zustand";
 import { devtools, persist } from "zustand/middleware";
-import { ObjectId } from "mongodb";
+import { ObjectId } from "bson";
 import axios from "axios";
 
 interface DocumentStore {
@@ -10,7 +10,7 @@ interface DocumentStore {
   id?: ObjectId;
   setName: (name: string) => void;
   setContent: (content: string) => void;
-  fetch: Promise<id: ObjectId> => void;
+  fetch: (id: ObjectId) => Promise<void>;
 }
 
 const useDocumentStore = create<DocumentStore>()(
