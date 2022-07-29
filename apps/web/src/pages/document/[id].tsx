@@ -15,12 +15,12 @@ const Document: NextPage = () => {
   const router = useRouter();
   const { status } = useSession();
   const { id } = router.query;
-  const fetchStore = useDocumentStore(state => state.fetch);
+  const fetchStore = useDocumentStore((state) => state.fetch);
 
   useEffect(() => {
     if (status === "unauthenticated") router.push("/auth/signup");
     fetchStore(new ObjectId(id as string));
-  }, [])
+  }, []);
 
   return (
     <Flex h="100vh" direction="row">

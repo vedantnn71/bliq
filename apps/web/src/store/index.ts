@@ -15,42 +15,42 @@ interface DocumentStore {
 
 const useDocumentStore = create<DocumentStore>()(
   devtools((set, get) => ({
-      name: "Untitled",
-      content: "<p>Start writing ...</p>",
-      completion: "",
-      setName: async (name: string) => {
-        const id = get().id;
+    name: "Untitled",
+    content: "<p>Start writing ...</p>",
+    completion: "",
+    setName: async (name: string) => {
+      const id = get().id;
 
-        if (!id || !name) return;
+      if (!id || !name) return;
 
-        set({ name });
+      set({ name });
 
-        const response = await axios.put(`/api/document/${id}`, { name });
-        const data = await response.data;
-      },
-      setContent: async (content: string) => {
-        const id = get().id;
+      const response = await axios.put(`/api/document/${id}`, { name });
+      const data = await response.data;
+    },
+    setContent: async (content: string) => {
+      const id = get().id;
 
-        if (!id || !content) return;
+      if (!id || !content) return;
 
-        set({ content });
+      set({ content });
 
-        const response = await axios.put(`/api/document/${id}`, { content });
-        const data = await response.data;
-      },
-      fetch: async (id: ObjectId) => {
-        if (!id) return;
+      const response = await axios.put(`/api/document/${id}`, { content });
+      const data = await response.data;
+    },
+    fetch: async (id: ObjectId) => {
+      if (!id) return;
 
-        const response = await axios.get(`/api/document/${id}`);
-        const data = await response.data;
+      const response = await axios.get(`/api/document/${id}`);
+      const data = await response.data;
 
-        set({
-          id: new ObjectId(data?._id as string),
-          name: data?.name as string,
-          content: data?.content as string
-        });
-      },
-    }))
+      set({
+        id: new ObjectId(data?._id as string),
+        name: data?.name as string,
+        content: data?.content as string,
+      });
+    },
+  }))
 );
 
 export { useDocumentStore };
