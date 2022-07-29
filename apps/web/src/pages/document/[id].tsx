@@ -3,6 +3,8 @@ import { Flex } from "@chakra-ui/react";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
+import { useDocumentStore } from "store";
+import { ObjectId } from "bson";
 import Head from "next/head";
 import Image from "next/image";
 import Nav from "components/nav";
@@ -13,8 +15,12 @@ const Document: NextPage = () => {
   const router = useRouter();
   const { status } = useSession();
   const { id } = router.query;
+  const fetchStore = useDocumentStore(state => state.fetch);
 
-  if (status === "unauthenticated") router.push("/auth/signup");
+  useEffect(() => {
+    if (status === "unauthenticated") router.push("/auth/signup");
+    fetchStore(new ObjectId(id as string));
+  }, [])
 
   return (
     <Flex h="100vh" direction="row">
