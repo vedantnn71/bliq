@@ -14,8 +14,7 @@ interface DocumentStore {
 }
 
 const useDocumentStore = create<DocumentStore>()(
-  devtools(
-    persist((set, get) => ({
+  devtools((set, get) => ({
       name: "Untitled",
       content: "<p>Start writing ...</p>",
       completion: "",
@@ -32,7 +31,7 @@ const useDocumentStore = create<DocumentStore>()(
       setContent: async (content: string) => {
         const id = get().id;
 
-        if (!content) return;
+        if (!id || !content) return;
 
         set({ content });
 
@@ -52,7 +51,6 @@ const useDocumentStore = create<DocumentStore>()(
         });
       },
     }))
-  )
 );
 
 export { useDocumentStore };
