@@ -27,7 +27,12 @@ const Header = () => {
         onChange={(event: ChangeEvent<HTMLInputElement>) =>
           setName(event.target.value)
         }
-        style={{ border: "none", outline: "none", color: "rgba(0, 0, 0, 0.8)" }}
+        style={{ 
+          border: "none",
+          outline: "none", 
+          color: "rgba(0, 0, 0, 0.9)",
+          fontWeight: "550"
+        }}
       />
       <Text fontWeight="medium" color="blackAlpha.700">
         {status}
