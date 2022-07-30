@@ -32,6 +32,7 @@ const Nav = () => {
         direction="column"
         maxW="max-content"
         h="100vh"
+        w="100%"
         alignItems="center"
         justify="space-between"
         py="12"

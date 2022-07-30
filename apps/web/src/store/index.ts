@@ -3,6 +3,12 @@ import { devtools, persist } from "zustand/middleware";
 import { ObjectId } from "bson";
 import axios from "axios";
 
+type Document = {
+  name?: string;
+  content?: string;
+  _id?: ObjectId;
+}
+
 interface DocumentStore {
   name: string;
   content: string;
@@ -11,6 +17,8 @@ interface DocumentStore {
   setName: (name: string) => Promise<void>;
   setContent: (content: string) => Promise<void>;
   fetch: (id: ObjectId) => Promise<void>;
+  queriedDocuments: Document[];
+  setQueriedDocuments: (documents: Document[]) => void;
 }
 
 const useDocumentStore = create<DocumentStore>()(
@@ -18,6 +26,10 @@ const useDocumentStore = create<DocumentStore>()(
     name: "Untitled",
     content: "<p>Start writing ...</p>",
     completion: "",
+    queriedDocuments: [],
+    setQueriedDocuments: (documents: Document[]) => {
+      set({ queriedDocuments: documents });
+    },
     setName: async (name: string) => {
       const id = get().id;
 
