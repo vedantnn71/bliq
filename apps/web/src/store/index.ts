@@ -18,7 +18,7 @@ interface DocumentStore {
   setContent: (content: string) => Promise<void>;
   fetch: (id: ObjectId) => Promise<void>;
   queriedDocuments: Document[];
-  setQueriedDocuments: (documents: string) => void;
+  setQueriedDocuments: (documents: Document[]) => void;
 }
 
 const useDocumentStore = create<DocumentStore>()(
