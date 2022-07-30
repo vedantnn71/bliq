@@ -34,7 +34,7 @@ const Search = () => {
     }
 
     const found = queriedDocuments?.filter((doc) =>
-      doc.name.toLowerCase().includes(query.toLowerCase())
+      doc?.name?.toLowerCase().includes(query.toLowerCase())
     );
 
     if (JSON.stringify(queriedDocuments) === JSON.stringify(found)) return;
