@@ -18,6 +18,7 @@ interface DocumentStore {
   setContent: (content: string) => Promise<void>;
   fetch: (id: ObjectId) => Promise<void>;
   queriedDocuments: Document[];
+  setQueriedDocuments: (documents: string) => void;
 }
 
 const useDocumentStore = create<DocumentStore>()(
@@ -26,8 +27,8 @@ const useDocumentStore = create<DocumentStore>()(
     content: "<p>Start writing ...</p>",
     completion: "",
     queriedDocuments: [],
-    setQueriedDocuments: (docs: Document[]) => {
-      set({ queriedDocuments: docs });
+    setQueriedDocuments: (documents: Document[]) => {
+      set({ queriedDocuments: documents });
     },
     setName: async (name: string) => {
       const id = get().id;
