@@ -2,6 +2,7 @@ import type { AppProps } from "next/app";
 import { ChakraProvider } from "@chakra-ui/react";
 import { SessionProvider } from "next-auth/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { SEO } from "ui/components/web";
 import theme from "ui/theme";
 import "styles/fonts.css";
@@ -17,6 +18,7 @@ const App = ({ Component, pageProps }: AppProps) => {
           <SEO />
           <Component {...pageProps} />
         </ChakraProvider>
+        <ReactQueryDevtools initialIsOpen={true} />
       </QueryClientProvider>
     </SessionProvider>
   );
