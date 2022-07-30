@@ -19,12 +19,14 @@ const createDocument = async ({
 
   if (!userId) return;
 
-  await documents.insertOne({
+  const doc = await documents.insertOne({
     userId,
     name,
     content,
     createdAt: Date.now(),
   });
+
+  return doc;   
 };
 
 export default createDocument;
