@@ -7,7 +7,7 @@ type Document = {
   name?: string;
   content?: string;
   _id?: ObjectId;
-}
+};
 
 interface DocumentStore {
   name: string;

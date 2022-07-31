@@ -9,7 +9,7 @@ const createDocument = async () => {
   const data = response?.data;
 
   return data;
-}
+};
 
 const New: NextPage = () => {
   const { data, isLoading } = useQuery(["/api/document/new"], createDocument);
@@ -26,6 +26,6 @@ const New: NextPage = () => {
   }
 
   return <Text>Redirecting ...</Text>;
-}
+};
 
 export default New;

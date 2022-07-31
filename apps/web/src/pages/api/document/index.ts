@@ -14,7 +14,7 @@ const handler: NextApiHandler = async (
   const session = await getSession({ req });
 
   if (req.method !== "GET") {
-    res.status(404).send("Not found")
+    res.status(404).send("Not found");
   }
 
   if (!session) {

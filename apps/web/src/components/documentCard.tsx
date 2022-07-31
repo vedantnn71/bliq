@@ -1,11 +1,6 @@
 import type { MouseEvent } from "react";
-import {
-  Box,
-  Flex,
-  Heading,
-  Text
-} from "@chakra-ui/react";
-import { IconFile, IconPlus } from '@tabler/icons';
+import { Box, Flex, Heading, Text } from "@chakra-ui/react";
+import { IconFile, IconPlus } from "@tabler/icons";
 import { ObjectId } from "bson";
 import { useRouter } from "next/router";
 import parse from "html-react-parser";
@@ -18,17 +13,12 @@ interface DocumentCardProps {
 }
 
 const DocumentIcon = () => (
-  <Flex
-    px="8"
-    py="6"
-  >
+  <Flex px="8" py="6">
     <IconFile color="rgba(0, 0, 0, 0.8)" size="4.35rem" stroke={1} />
   </Flex>
 );
 
-const DocumentPreview = ({ content }: {
-  content: string;
-}) => (
+const DocumentPreview = ({ content }: { content: string }) => (
   <Flex p="4" w="100%">
     <Text w="100%" textAlign="left" noOfLines={[2, 3]}>
       {parse(content)}
@@ -36,8 +26,8 @@ const DocumentPreview = ({ content }: {
   </Flex>
 );
 
-const DocumentCard = ({ 
-  variant = "card", 
+const DocumentCard = ({
+  variant = "card",
   documentId,
   name,
   content,
@@ -51,7 +41,7 @@ const DocumentCard = ({
     } else if (variant === "new") {
       router.push(`/document/new`);
     }
-  }
+  };
 
   return (
     <Flex
@@ -75,13 +65,17 @@ const DocumentCard = ({
         justify={variant === "new" ? "center" : ""}
         alignItems={variant === "new" ? "center" : ""}
       >
-        {variant === "new" ? <DocumentIcon /> : <DocumentPreview content={content ?? ""} />}
+        {variant === "new" ? (
+          <DocumentIcon />
+        ) : (
+          <DocumentPreview content={content ?? ""} />
+        )}
       </Flex>
       <Flex
         borderTop="2px"
         borderColor="gray.100"
         borderRadius="md"
-        justify="center" 
+        justify="center"
         alignItems="center"
         p="4"
         w="100%"
@@ -89,16 +83,12 @@ const DocumentCard = ({
         gap={1}
       >
         {variant === "new" && <IconPlus />}
-        <Heading
-          size="sm" 
-          color="gray.700"
-          _hover={{ color: "gray.600" }}
-        >
-          {variant === "new" ? "New Document" : name}        
+        <Heading size="sm" color="gray.700" _hover={{ color: "gray.600" }}>
+          {variant === "new" ? "New Document" : name}
         </Heading>
       </Flex>
     </Flex>
-  )
-}
+  );
+};
 
 export default DocumentCard;

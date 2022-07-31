@@ -5,8 +5,8 @@ import { useEditor, EditorContent } from "@tiptap/react";
 import { useDocumentStore } from "store";
 import StarterKit from "@tiptap/starter-kit";
 import Menubar from "./menubar";
-import TextStyle from '@tiptap/extension-text-style'
-import Color from '@tiptap/extension-color'
+import TextStyle from "@tiptap/extension-text-style";
+import Color from "@tiptap/extension-color";
 import styles from "styles/document.module.css";
 
 const TextDocument = () => {
@@ -16,15 +16,15 @@ const TextDocument = () => {
 
   const completionData = {
     on: "Hello world",
-    complete: `<p><span style="color: rgba(0, 0, 0, 0.6)">this is completion</span></p>`
-  }
+    complete: `<p><span style="color: rgba(0, 0, 0, 0.6)">this is completion</span></p>`,
+  };
 
   const editor = useEditor({
     extensions: [
       StarterKit,
       TextStyle,
       Color.configure({
-        types: ['textStyle'],
+        types: ["textStyle"],
       }),
     ],
     content,
@@ -32,10 +32,10 @@ const TextDocument = () => {
 
   useEffect(() => {
     setText(editor?.getHTML() as string);
-    
+
     if (text?.includes(completionData.on)) {
       if (text?.includes(completionData.complete) === true) {
-        return; 
+        return;
       }
 
       if (!editor?.isDestroyed) {
@@ -51,7 +51,7 @@ const TextDocument = () => {
       }
 
       setContent(text);
-    }, 3000)
+    }, 3000);
   }, [content, text, editor?.getText()]);
 
   return (

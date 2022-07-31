@@ -26,7 +26,7 @@ const createDocument = async ({
     createdAt: Date.now(),
   });
 
-  return doc;   
+  return doc;
 };
 
 export default createDocument;
