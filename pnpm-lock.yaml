@@ -87,6 +87,9 @@ importers:
       '@tabler/icons': ^1.78.1
       '@tanstack/react-query': ^4.0.10
       '@tanstack/react-query-devtools': ^4.0.10
+      '@tiptap/core': 2.0.0-beta.182
+      '@tiptap/extension-color': 2.0.0-beta.12
+      '@tiptap/extension-text-style': 2.0.0-beta.26
       '@tiptap/react': 2.0.0-beta.114
       '@tiptap/starter-kit': 2.0.0-beta.191
       '@types/bcryptjs': ^2.4.2
@@ -124,6 +127,9 @@ importers:
       '@tabler/icons': 1.78.1_biqbaboplfbrettd7655fr4n2y
       '@tanstack/react-query': 4.0.10_biqbaboplfbrettd7655fr4n2y
       '@tanstack/react-query-devtools': 4.0.10_react@18.2.0
+      '@tiptap/core': 2.0.0-beta.182
+      '@tiptap/extension-color': 2.0.0-beta.12_dfvzelxzsfto2kz3ulsgxg5rhq
+      '@tiptap/extension-text-style': 2.0.0-beta.26_jdrcmhoxj44u3cq7gnenksjiqq
       '@tiptap/react': 2.0.0-beta.114_b7cpfzdww2wxjdqheg7veprq6i
       '@tiptap/starter-kit': 2.0.0-beta.191
       '@types/lodash': 4.14.182
@@ -282,7 +288,7 @@ packages:
       '@babel/compat-data': 7.18.8
       '@babel/core': 7.18.9
       '@babel/helper-validator-option': 7.18.6
-      browserslist: 4.21.2
+      browserslist: 4.21.3
       semver: 6.3.0
     dev: false
 
@@ -1809,6 +1815,16 @@ packages:
       '@tiptap/core': 2.0.0-beta.182
     dev: false
 
+  /@tiptap/extension-color/2.0.0-beta.12_dfvzelxzsfto2kz3ulsgxg5rhq:
+    resolution: {integrity: sha512-ddFIUdb7e0gLlYlcQiyZ+zRC4nXtpX2bhOHZ7IdCasoHYEWs/8dsncngLtymAgsRBeruMZ5K6ZhAYtgQVUugqQ==}
+    peerDependencies:
+      '@tiptap/core': ^2.0.0-beta.1
+      '@tiptap/extension-text-style': ^2.0.0-beta.1
+    dependencies:
+      '@tiptap/core': 2.0.0-beta.182
+      '@tiptap/extension-text-style': 2.0.0-beta.26_jdrcmhoxj44u3cq7gnenksjiqq
+    dev: false
+
   /@tiptap/extension-document/2.0.0-beta.17_jdrcmhoxj44u3cq7gnenksjiqq:
     resolution: {integrity: sha512-L6sg0FNchbtIpQkCSjMmItVGs3/vep8Fq56WRtDc1wBSGUSmtHaxQG7F2FZLnNIUMuvzVMRD81m2vYG73WkY6A==}
     peerDependencies:
@@ -1914,6 +1930,14 @@ packages:
 
   /@tiptap/extension-strike/2.0.0-beta.29_jdrcmhoxj44u3cq7gnenksjiqq:
     resolution: {integrity: sha512-zqFuY7GfNmZ/KClt6kxQ+msGo3syqucP/Xnlihxi+/h/G+oTvEwyOIXCtDOltvxcsWH/TUsdr5vzLp0j+Mdc6Q==}
+    peerDependencies:
+      '@tiptap/core': ^2.0.0-beta.1
+    dependencies:
+      '@tiptap/core': 2.0.0-beta.182
+    dev: false
+
+  /@tiptap/extension-text-style/2.0.0-beta.26_jdrcmhoxj44u3cq7gnenksjiqq:
+    resolution: {integrity: sha512-sHUlj5j86W53jvj9ijhXGyqxDdT2c9B7lVwdmDtksvSIrRYuCFqn7hFBzlypNBb56zePqBlIFymUmhK283L6fQ==}
     peerDependencies:
       '@tiptap/core': ^2.0.0-beta.1
     dependencies:
@@ -2278,15 +2302,15 @@ packages:
     dependencies:
       fill-range: 7.0.1
 
-  /browserslist/4.21.2:
-    resolution: {integrity: sha512-MonuOgAtUB46uP5CezYbRaYKBNt2LxP0yX+Pmj4LkcDFGkn9Cbpi83d9sCjwQDErXsIJSzY5oKGDbgOlF/LPAA==}
+  /browserslist/4.21.3:
+    resolution: {integrity: sha512-898rgRXLAyRkM1GryrrBHGkqA5hlpkV5MhtZwg9QXeiyLUYs2k00Un05aX5l2/yJIOObYKOpS2JNo8nJDE7fWQ==}
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
     dependencies:
-      caniuse-lite: 1.0.30001369
-      electron-to-chromium: 1.4.199
+      caniuse-lite: 1.0.30001373
+      electron-to-chromium: 1.4.206
       node-releases: 2.0.6
-      update-browserslist-db: 1.0.5_browserslist@4.21.2
+      update-browserslist-db: 1.0.5_browserslist@4.21.3
     dev: false
 
   /bson/4.6.5:
@@ -2315,6 +2339,10 @@ packages:
 
   /caniuse-lite/1.0.30001369:
     resolution: {integrity: sha512-OY1SBHaodJc4wflDIKnlkdqWzJZd1Ls/2zbVJHBSv3AT7vgOJ58yAhd2CN4d57l2kPJrgMb7P9+N1Mhy4tNSQA==}
+    dev: false
+
+  /caniuse-lite/1.0.30001373:
+    resolution: {integrity: sha512-pJYArGHrPp3TUqQzFYRmP/lwJlj8RCbVe3Gd3eJQkAV8SAC6b19XS9BjMvRdvaS8RMkaTN8ZhoHP6S1y8zzwEQ==}
     dev: false
 
   /chalk/2.4.2:
@@ -2515,8 +2543,8 @@ packages:
       domhandler: 5.0.3
     dev: false
 
-  /electron-to-chromium/1.4.199:
-    resolution: {integrity: sha512-WIGME0Cs7oob3mxsJwHbeWkH0tYkIE/sjkJ8ML2BYmuRcjhRl/q5kVDXG7W9LOOKwzPU5M0LBlXRq9rlSgnNlg==}
+  /electron-to-chromium/1.4.206:
+    resolution: {integrity: sha512-h+Fadt1gIaQ06JaIiyqPsBjJ08fV5Q7md+V8bUvQW/9OvXfL2LRICTz2EcnnCP7QzrFTS6/27MRV6Bl9Yn97zA==}
     dev: false
 
   /emoji-regex/8.0.0:
@@ -4716,13 +4744,13 @@ packages:
       has-symbols: 1.0.3
       which-boxed-primitive: 1.0.2
 
-  /update-browserslist-db/1.0.5_browserslist@4.21.2:
+  /update-browserslist-db/1.0.5_browserslist@4.21.3:
     resolution: {integrity: sha512-dteFFpCyvuDdr9S/ff1ISkKt/9YZxKjI9WlRR99c180GaztJtRa/fn18FdxGVKVsnPY7/a/FDN68mcvUmP4U7Q==}
     hasBin: true
     peerDependencies:
       browserslist: '>= 4.21.0'
     dependencies:
-      browserslist: 4.21.2
+      browserslist: 4.21.3
       escalade: 3.1.1
       picocolors: 1.0.0
     dev: false
