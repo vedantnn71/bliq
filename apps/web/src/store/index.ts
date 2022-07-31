@@ -35,6 +35,8 @@ const useDocumentStore = create<DocumentStore>()(
 
       if (!id || !name) return;
 
+      if (name === get().name) return;
+
       set({ name });
 
       const response = await axios.put(`/api/document/${id}`, { name });
@@ -44,6 +46,8 @@ const useDocumentStore = create<DocumentStore>()(
       const id = get().id;
 
       if (!id || !content) return;
+
+      if (content === get().content) return;
 
       set({ content });
 
