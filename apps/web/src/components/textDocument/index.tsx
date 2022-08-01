@@ -16,8 +16,12 @@ const TextDocument = () => {
 
   const completionData = {
     on: "Hello world",
-    complete: `<p><span style="color: rgba(0, 0, 0, 0.6)">this is completion</span></p>`,
+    complete: "this is an example auto-completion",
   };
+
+  const [completion, setCompletion] = useState(
+    `<span style="color: rgba(0, 0, 0, 0.6)">${completionData.complete}</span>`
+  );
 
   const editor = useEditor({
     extensions: [
@@ -30,17 +34,24 @@ const TextDocument = () => {
     content,
   });
 
+  const editorText = editor?.getText();
+
   useEffect(() => {
     setText(editor?.getHTML() as string);
 
     if (text?.includes(completionData.on)) {
-      if (text?.includes(completionData.complete) === true) {
+      if (text?.includes(completionData.complete)) {
         return;
       }
 
+      if (completion === "") return;
+
       if (!editor?.isDestroyed) {
-        editor?.commands?.insertContent(completionData.complete);
+        editor?.commands?.setContent(`<p>${text}${completion}</p>`);
         setText(editor?.getHTML() as string);
+
+        setCompletion("");
+
         return;
       }
     }
@@ -52,7 +63,7 @@ const TextDocument = () => {
 
       setContent(text);
     }, 3000);
-  }, [content, text, editor?.getText()]);
+  }, [content, text, editorText]);
 
   return (
     <Flex h="100%" direction="column" justify="space-between">
