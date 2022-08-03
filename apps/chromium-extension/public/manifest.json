@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "Bliq",
+  "description": "Supercharge your writing with blazing fast auto-completions.",
+  "version": "0.0.1",
+  "icons": {
+    "16": "/logo/16.png",
+    "32": "/logo/32.png",
+    "48": "/logo/48.png",
+    "96": "/logo/48.png",
+    "128": "/logo/128.png"
+  },
+  "action": {
+    "default_popup": "index.html"
+  },
+  "permissions": [
+     "activeTab"
+  ],
+  "content_scripts": [
+    {
+       "matches": ["http://*/*", "https://*/*"],
+       "js": ["./static/js/content.js"]
+     }
+  ],
+}
