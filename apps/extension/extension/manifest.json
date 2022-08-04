@@ -1,0 +1,43 @@
+{
+  "name": "Bliq - supercharge your writing",
+  "short_name": "Bliq",
+  "description": "Supercharge your writing with blazing fast completions.",
+  "version": "0.0.0",
+  "manifest_version": 3,
+  "icons": {
+    "16": "images/16.png",
+    "32": "images/32.png",
+    "48": "images/48.png",
+    "96": "images/96.png",
+    "128": "images/128.png"
+  },
+  "permissions": ["storage"],
+  "content_scripts": [
+    {
+      "run_at": "document_end",
+      "matches": ["https://*/*", "https://*/*"],
+      "js": ["content/main.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "content/main.css"
+      ],
+      "matches": ["https://*/*", "https://*/*"]
+    }
+  ],
+  "options_ui": {
+    "page": "index.html",
+    "open_in_tab": true
+  },
+  "action": {
+    "default_icon": {
+      "16": "images/16.png",
+      "32": "images/32.png",
+      "48": "images/48.png"
+    },
+    "default_title": "Preferences",
+    "default_popup": "index.html"
+  }
+}
