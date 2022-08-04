@@ -28,7 +28,7 @@
     }
   ],
   "options_ui": {
-    "page": "index.html",
+    "page": "preferences.html",
     "open_in_tab": true
   },
   "action": {
@@ -38,6 +38,6 @@
       "48": "images/48.png"
     },
     "default_title": "Preferences",
-    "default_popup": "index.html"
+    "default_popup": "preferences.html"
   }
 }
