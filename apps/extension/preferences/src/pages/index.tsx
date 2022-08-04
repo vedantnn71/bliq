@@ -4,7 +4,7 @@ import Container from "components/layout/container";
 const Home: NextPage = () => {
   return (
     <Container>
-      <h1 class="text-3xl font-bold">
+      <h1 className="text-3xl font-bold">
        heyyy world
       </h1>
       <p>Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.</p>
