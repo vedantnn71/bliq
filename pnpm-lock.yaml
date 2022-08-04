@@ -24,6 +24,7 @@ importers:
       '@types/react': 18.0.15
       '@types/react-dom': 18.0.6
       eslint: 8.21.0
+      eslint-config-custom: workspace:*
       eslint-config-next: 12.2.3
       framer-motion: ^6.5.1
       next: latest
@@ -47,6 +48,7 @@ importers:
       '@types/react': 18.0.15
       '@types/react-dom': 18.0.6
       eslint: 8.21.0
+      eslint-config-custom: link:../../../packages/eslint-config-custom
       eslint-config-next: 12.2.3_qugx7qdu5zevzvxaiqyxfiwquq
       tsconfig: link:../../../packages/tsconfig
       typescript: 4.7.4
