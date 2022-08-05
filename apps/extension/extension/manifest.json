@@ -11,7 +11,8 @@
     "96": "images/96.png",
     "128": "images/128.png"
   },
-  "permissions": ["storage"],
+  "host_permissions": ["*://*/*"],
+  "permissions": ["storage", "cookies"],
   "content_scripts": [
     {
       "run_at": "document_end",
