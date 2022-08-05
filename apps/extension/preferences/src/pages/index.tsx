@@ -1,13 +1,27 @@
 import type { NextPage } from 'next'
+import { useState, useEffect } from "react";
 import Container from "components/layout/container";
+import Auth from "components/auth";
+import isAuthenticated from "utils/isAuthenticated";
 
 const Home: NextPage = () => {
+  const [authenticated, setAuthenticated] = useState<any>();
+  
+  useEffect(() => {
+    isAuthenticated()
+      .then(response => setAuthenticated(response))
+      .catch(error => console.error);
+  }, [])
+
+  if (!authenticated) return (
+    <Container>
+      <Auth />
+    </Container>
+  )
+
   return (
     <Container>
-      <h1 className="text-3xl font-bold">
-       heyyy world
-      </h1>
-      <p>Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.</p>
+      <h1>Hola world!</h1>
     </Container>
   )
 }
