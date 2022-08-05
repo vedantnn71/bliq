@@ -7,7 +7,7 @@ const Auth = () => {
   return (
     <div className="py-4 px-6 flex flex-col gap-6 justify-center">
       <div className="flex flex-row justify-center items-center mx-auto">
-        <img src="/next-assets/logo.svg" className="w-20 mx-0" />
+        <img src="images/logo.svg" className="w-20 mx-0" />
         <h1 className="font-bold text-3xl text-slate-800">
           Bliq <span className="text-brand-secondary">for chrome</span>
         </h1>
@@ -18,15 +18,15 @@ const Auth = () => {
         </h2>
         <ul className="text-lg align-center justify-center py-2 text-gray-800">
           <li className="flex flex-row gap-1">
-            <img src="/next-assets/check.png" />
+            <img src="images/check.png" />
             Get blazing fast auto-completions
           </li>
           <li className="flex flex-row gap-1">
-            <img src="/next-assets/check.png" />
+            <img src="images/check.png" />
             Increase your productivity
           </li>
           <li className="flex flex-row gap-1">
-            <img src="/next-assets/check.png" />
+            <img src="images/check.png" />
             Improve your writing
           </li>
         </ul>
