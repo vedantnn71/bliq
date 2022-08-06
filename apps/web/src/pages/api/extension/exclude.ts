@@ -65,7 +65,7 @@ const handler: NextApiHandler = async (
 
     const deletedWebsite = await extensions.updateOne({ userId }, {
       $set: {
-        excludedWebsites: excludedWebsites.filter(website => website?.url !== url)
+        excludedWebsites: excludedWebsites?.filter(website => website?.url !== url)
       }
     });
 
