@@ -45,8 +45,8 @@ const handler: NextApiHandler = async (
   const objectId = new ObjectId(id as string);
 
   const client = await mongoClient;
-  const database: Db = await client.db();
-  const documents = await database.collection<Document>("documents");
+  const database: Db = client.db();
+  const documents = database.collection<Document>("documents");
 
   if (req.method === "GET") {
     const doc = await documents.findOne({ _id: objectId });

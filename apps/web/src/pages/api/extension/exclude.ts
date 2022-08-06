@@ -25,15 +25,15 @@ const handler: NextApiHandler = async (
   const userId = user?._id as ObjectId;
 
   const client = await mongoClient;
-  const db = await client.db();
-  const extensions = await db.collection<Extension>("extensions");
+  const db = client.db();
+  const extensions = db.collection<Extension>("extensions");
   const extension = await extensions.findOne({ userId });
   
   if (extension === null) {
     await extensions.insertOne({ userId, excludedWebsites: [] })
   }
 
-  const excludedWebsites = await extension?.excludedWebsites;
+  const excludedWebsites = extension?.excludedWebsites;
    
   if (req.method === "GET") {
     res.json(excludedWebsites);

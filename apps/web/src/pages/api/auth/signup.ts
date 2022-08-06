@@ -27,7 +27,7 @@ const handler: NextApiHandler = async (
   }
 
   const client = await mongoClient;
-  const db = await client.db();
+  const db = client.db();
 
   const existingUser = await db.collection("users").findOne({ email: email });
 

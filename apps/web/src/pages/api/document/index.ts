@@ -1,11 +1,9 @@
 import type { NextApiHandler, NextApiRequest, NextApiResponse } from "next";
 import type { Document } from "lib/db/types";
-import { BSONTypeError } from "bson";
 import { getSession } from "next-auth/react";
 import { findUser } from "lib/db";
 import { client as mongoClient } from "lib/mongodb";
 import { Db } from "mongodb";
-import { ObjectId } from "bson";
 
 const handler: NextApiHandler = async (
   req: NextApiRequest,
@@ -33,8 +31,8 @@ const handler: NextApiHandler = async (
   const userId = user._id;
 
   const client = await mongoClient;
-  const database: Db = await client.db();
-  const documents = await database.collection<Document>("documents");
+  const database: Db = client.db();
+  const documents = database.collection<Document>("documents");
 
   const docs = await documents.find<Document>({ userId }).toArray();
 
