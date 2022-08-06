@@ -13,9 +13,7 @@ const Auth = () => {
         </h1>
       </div>
       <div>
-        <h2 className="font-semibold text-slate-800 text-xl">
-          Signup now to:
-        </h2>
+        <h2 className="font-semibold text-slate-800 text-xl">Signup now to:</h2>
         <ul className="text-lg align-center justify-center py-2 text-gray-800">
           <li className="flex flex-row gap-1">
             <img src="images/check.png" />
@@ -32,23 +30,23 @@ const Auth = () => {
         </ul>
       </div>
       <a
-        className="bg-brand-primary p-2 rounded-md text-white text-lg hover:scale-[.98] duration-500 text-center text-semibold" 
+        className="bg-brand-primary p-2 rounded-md text-white text-lg hover:scale-[.98] duration-500 text-center text-semibold"
         href={config.appUrl + "/auth/signup"}
         target="_blank"
         rel="noreferrer"
       >
         Signup
-      </a>  
+      </a>
       <a
         className="bg-gray-100 secondary p-2 rounded-md text-slate-800 border-2 border-brand-secondary text-lg text-center hover:scale-[.98] duration-500 text-semibold"
         href={config.appUrl + "/auth/login"}
         target="_blank"
         rel="noreferrer"
       >
-        Login 
-      </a>   
+        Login
+      </a>
     </div>
-  )
-}
+  );
+};
 
 export default Auth;
