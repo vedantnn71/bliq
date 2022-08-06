@@ -44,7 +44,7 @@ export default NextAuth({
         });
 
         if (!user) {
-          client.close();
+          await client.close();
           throw new Error("No user found!");
         }
 
@@ -54,11 +54,11 @@ export default NextAuth({
         );
 
         if (!isValid) {
-          client.close();
+          await client.close();
           throw new Error("Could not log you in!");
         }
 
-        client.close();
+        await client.close();
         return { email: user.email };
       },
     }),
