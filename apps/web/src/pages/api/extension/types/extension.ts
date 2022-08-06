@@ -1,7 +1,9 @@
+import { ObjectId } from "bson";
+import Exclude from "./exclude";
+
 interface Extension {
-  _id: ObjectId;
   userId: ObjectId;
-  excludedWebsites: Exclude[]
+  excludedWebsites?: Exclude[];
 }
 
 export default Extension;
